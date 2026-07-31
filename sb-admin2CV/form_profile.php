@@ -75,6 +75,7 @@
                         </div>
 
                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        <a href="tabel_profile.php" class="btn btn-secondary">Kembali</a>
 
                       </form>
 

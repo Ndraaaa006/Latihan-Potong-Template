@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - iPortfolio Bootstrap Template</title>
+  <title>Curriculum Vitae of Indra</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -20,6 +20,7 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -34,56 +35,112 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+
+  <!-- link icon yang di dapat dari devicon.dev -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- tooltip start -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    #hero:before {
+      content: "";
+      background: rgba(5, 13, 24, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  </style>
 </head>
 
-<body class="index-page">
+<body>
+  <!-- LETAK PEMANGGILAN DATA DI BACKEND MENGGUNAKAN PHP start here -->
+  <?php
+  include "../sb-admin2CV/connection.php";
+  // from profile di bawah ini adalah nama tabeldi dalem databse 
+  $tampil_profile = mysqli_query($koneksi, "SELECT * FROM profile");
+  $p = mysqli_fetch_object($tampil_profile);
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  ?>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
-    </div>
+  <!-- ===== mobile nav toggle button ==== -->
+  <i class="header-toggle bi bi-list d-xl-none"></i>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+  <!-- === header === -->
+
+  <header id="header">
+    <div class="d-flex flex-column">
+
+
+      <div class="profile">
+
+        <!-- menampilkan data foro sidebar start -->
+        <?php
+        include "../sb-admin2CV/connection.php";
+        // from profile dibawah  ini adalah nama tabel di dlm database 
+        $tampil_sidebar_photo = mysqli_query($koneksi, "SELECT * FROM  
+         sidebar_photo");
+        $sb = mysqli_fetch_object($tampil_sidebar_photo);
+
+        ?>
+        <!-- end -->
+
+        <img src="../sb-admin2CV/foto/<?php echo $sb->sidebar_photo ?>" alt=""
+          class="img-fluid rounded-circle">
+      </div>
+
+      <!-- <h1 class="text-light"><a href="index.html">Indra Hermawan</a></h1> -->
+      <h1 class="text-light"><a href="index.php"><?php echo $p->nama; ?></a></h1>
+
+
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Alex Smith</h1>
-    </a>
 
-    <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+
+      <div class="social-links text-center">
+        <!--a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
       <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
       <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
       <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a-->
+        <a href="<?php echo $p->linkedin ?>" class="linkedin" target="_blank"><i>
+            class="bx bxl-linkedin"></i></a>
+      </div>
     </div>
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#hero" class="nav-link scrollto active"><i class="bx
+        bx-home"></i> <span>Home</span></a></li>
+
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i>
+            <span>Overview</span></a></li>
+
+        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-user"></i>
+            <span>Proficiency</span></a></li>
+
+        <li><a href="#education" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
+            <span>Education</span></a></li>
+
+        <li><a href="#experience" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
+            <span>Experience</span></a></li>
+
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>
+            <span>Portfolio</span></a></li>
+        <!-- <li><a href="#contant" class="nav-link scrollto"><i class="bx bx-envelope"></li> <span>contact</span></a></li> -->
+
       </ul>
     </nav>
 
@@ -92,71 +149,77 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Alex Smith</h2>
-        <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+      <div class="hero-container" data-aos="fade-in">
+        <h2><?php echo $p->nama; ?></h2>
+        <p>saya <span class="typed" data-typed-items="Pekerja Keras, Mudah Bergaul, Ramah, Cerdas"></span></p>
       </div>
 
-    </section><!-- /Hero Section -->
+    </section><!-- /end Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
+      <div class="container">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>OVERVIEW</h2>
+          <!--p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
+        Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+         Quia fugiat sit in iste officiis commodi quidem hic quas.</p-->
+          <p style="text-align: justify;"><?php echo $p->about ?></p> <br>
+        </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="../sb-admin2CV/foto/<?php echo $sb->sidebar_photo ?>" class="img-fluid" alt="" width="350">
           </div>
-          <div class="col-lg-8 content">
-            <h2>UI/UX Designer &amp; Web Developer.</h2>
-            <p class="fst-italic py-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <!--h2>UI/UX Designer &amp; Web Developer.</h2-->
+            <div class="section-title">
+
+              <h2>Data Pribadi</h2>
+            </div>
+
+            <br>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
+                  <!--li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li-->
+                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><?php echo $p->website ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span><?php echo $p->phone ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span><?php echo $p->address ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span><?php echo $p->email ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Nationality:</strong> <span><?php echo $p->nationality ?></span></li>
                 </ul>
+
               </div>
-              <div class="col-lg-6">
+              <!--div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
                 </ul>
-              </div>
+              </div-->
             </div>
-            <p class="py-3">
+            <!--p class="py-3">
               Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
               Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            </p>
+            </p-->
           </div>
         </div>
 
       </div>
 
-    </section><!-- /About Section -->
+    </section><!-- /end About Section -->
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
+    <!-- Facts Section -->
+    <section id="facts" class="facts">
+      <div class="container">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!--div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
@@ -166,33 +229,33 @@
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
             </div>
-          </div><!-- End Stats Item -->
+          </div--><!-- End Stats Item -->
 
-          <div class="col-lg-3 col-md-6">
+        <!--div class="col-lg-3 col-md-6">
             <div class="stats-item">
               <i class="bi bi-journal-richtext"></i>
               <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
             </div>
-          </div><!-- End Stats Item -->
+          </div--><!-- End Stats Item -->
 
-          <div class="col-lg-3 col-md-6">
+        <!--div class="col-lg-3 col-md-6">
             <div class="stats-item">
               <i class="bi bi-headset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
             </div>
-          </div><!-- End Stats Item -->
+          </div--><!-- End Stats Item -->
 
-          <div class="col-lg-3 col-md-6">
+        <!--div class="col-lg-3 col-md-6">
             <div class="stats-item">
               <i class="bi bi-people"></i>
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
             </div>
-          </div><!-- End Stats Item -->
+          </div--><!-- End Stats Item -->
 
-        </div>
+        <!--/div-->
 
       </div>
 
@@ -202,145 +265,378 @@
     <section id="skills" class="skills section light-background">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      <div class="container section-title mb-4" style="color: grey;">
+        <h2>Keterampilan IT</h2>
+        <h6 style="color:gray">PROGRAMMING LANGUAGE & FRAMEWORKS </h6>
+        <h4 class="title"></h4>
+        <p class="description"> <?php include "../sb-admin2CV/connection.php";
+                                // profile adlah nama tabel di database
+                                $tampil_mobile = mysqli_query($koneksi, "SELECT * FROM mobile");
+                                while ($m = mysqli_fetch_object($tampil_mobile)) :
+                                ?>
+            <!-- <i style="color:grey;font-size:35px" class="<?php echo $m->icon; ?> m-3"></i> -->
+            <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $m->nama ?>"></i>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>WordPress/CMS</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-        </div>
+          <?php endwhile; ?>
+        </p>
 
       </div>
+      <p class="description"> <?php include "../sb-admin2CV/connection.php";
+                              // profile adlah nama tabel di database
+                              $tampil_familiar = mysqli_query($koneksi, "SELECT * FROM familiar");
+                              while ($m = mysqli_fetch_object($tampil_familiar)) :
+                              ?>
+          <!-- <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> m-3"></li> -->
+          <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top" title="<?php echo $m->nama; ?>"></i>
 
-    </section><!-- /Skills Section -->
+          <!-- untuki nmemunculkaqn tooltip per icon di butuhkan javascript as bellow -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var tooltips = new bootstrap.Tooltip(document.querySelector('.<?php echo $m->icon ?>'));
+            })
+          </script>
+          <!-- java script end -->
+          <!-- vgygyg -->
+        <?php endwhile; ?>
+      </p>
+      </p>
+      </div>
+
+      <div class="section-title mb-4" style="color: grey;">
+        <h6>TOOLS & PLATFORMS</h6>
+        <P class="description"> <?php include "../sb-admin2CV/connection.php";
+                                // profile adlah nama tabel di database
+                                $tampil_tools = mysqli_query($koneksi, "SELECT * FROM tools");
+                                while ($m = mysqli_fetch_object($tampil_tools)) :
+                                ?>
+            <!-- <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> m-3"></li> -->
+            <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $m->nama; ?>"></i>
+            <!-- untuki nmemunculkaqn tooltip per icon di butuhkan javascript as bellow -->
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                var tooltips = new bootstrap.Tooltip(document.querySelector('.<?php echo $m->icon ?>'));
+              })
+            </script>
+          <?php endwhile; ?>
+        </p>
+        </p>
+      </div>
+
+      <div class="section-title mt-4">
+        <h2>LANGUAGE PROFICIENCY</h2>
+        <?php include "../sb-admin2CV/connection.php";
+        // profile adlah nama tabel di database
+        $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
+        while ($l = mysqli_fetch_object($tampil_language)) :
+        ?>
+          <div class="row">
+            <div class="col">
+              <h6 class="skill" style="color:grey"><?php echo $l->bahasa ?> </h6>
+            </div>
+            <div class="col">
+
+              <img src="../sb-admin2CV/fotobende/<?php echo $l->flag ?>" alt="" class="val mb-3" width="40px">
+            </div>
+          </div>
+
+        <?php endwhile ?>
+      </div>
+
+      <div class="selection-title mt-4">
+        <h2>ADDITIONAL SKILLS</h2>
+        <!-- <p>Magnam dolores commodi suscipit. necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+                                    sint consecteture velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alies ea. Quia
+                                    fugitat sit in iste officiis commodi quidem hic quas.</p> -->
+      </div>
+
+
+      <div class="row skills-content">
+
+        <div class="col-lg" data-aos="fade-up">
+
+          <!-- membuat tampilan skill menggunakan perulangan WHILE -->
+          <?php
+          include "../sb-admin2CV/connection.php";
+          // profile adalah nama tabel di database
+          $tampil_skill = mysqli_query($koneksi, "SELECT * FROM skill ORDER BY id_skill DESC");
+          while ($s = mysqli_fetch_object($tampil_skill)) :
+          ?>
+
+            <span><?php echo $s->nama_skill ?></span> <br>
+          <?php endwhile; ?>
+          <!-- perulangan end -->
+          <!-- icon start -->
+          <!-- ambil icon nya dr devicon.dev dan link nya di letakkan di <HEAD> atas -->
+
+
+
+
+          <!--<div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                                      <div class="row skills-content skills-animation">
+
+                                        <div class="col-lg-6">
+
+                                          <div class="progress">
+                                            <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+                                            <div class="progress-bar-wrap">
+                                              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                          </div> 
+
+                                          <div class="progress">
+                                            <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+                                            <div class="progress-bar-wrap">
+                                              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="progress">
+                                            <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
+                                            <div class="progress-bar-wrap">
+                                              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                          </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+
+                                          <div class="progress">
+                                            <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
+                                            <div class="progress-bar-wrap">
+                                              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                          </div>
+
+                                          <div class="progress">
+                                            <span class="skill"><span>WordPress/CMS</span> <i class="val">90%</i></span>
+                                            <div class="progress-bar-wrap">
+                                              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                          </div><
+
+                                          <div class="progress">
+                                            <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
+                                            <div class="progress-bar-wrap">
+                                              <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                          </div>
+
+                                        </div>
+
+                                      </div>
+
+                                    </div> -->
+
+        </div>
+      </div>
+    </section><!-- End Skills Section -->
 
     <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
-
+    <section id="resume" class="resume">
       <div class="container">
 
+
         <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
-
+          <div class="col-lg" data-aos="fade-up">
+            <!-- <h3 class="resume-title">Sumary</h3>
             <div class="resume-item pb-0">
-              <h4>Brandon Johnson</h4>
+              <h4>Alex Smith</h4>
               <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
               <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
+               <li>Portland par 127, Orlando, FL</li>
+               <li>(123) 456-7891</li>
+               <li>alice.barkley@example.com</li>
               </ul>
-            </div><!-- Edn Resume Item -->
+            </div> -->
+            <div class="section-title">
+              <h2 id="education">EDUCATION</h2>
+            </div>
+            <?php
+            include "../sb-admin2CV/connection.php";
+            // profile adalah nama tabel di database
+            $tampil_education = mysqli_query($koneksi, "SELECT * FROM education ORDER BY id_education DESC ");
+            while ($e = mysqli_fetch_object($tampil_education)):
+            ?>
+              <div class="resume-item">
+                  <h4><?php echo $e->nama_jurusan ?></h4>
+                  <div class="row">
+                      <div class="col-10">
+                          <p><em><?php echo $e->tempat_belajar ?></em></p>
+                          <p><?php echo $e->deskripsi ?></p>
+                      </div>
+                      <div class="col-2">
+                          <div class="text-md-right">
+                              <h5><?php echo $e->tahun_belajar ?></h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <?php endwhile; ?>
 
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master of Fine Arts &amp; Graphic Design</h4>
-              <h5>2015 - 2016</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-            </div><!-- Edn Resume Item -->
+                  <div class="section-title mt-4">
+                  <h2 id="education">TRAINING</h2>
+                  </div>
+                  <?php
+                  include "../sb-admin2CV/connection.php";
+                  // profile adalah nama tabel di database
+                  $tampil_training = mysqli_query($koneksi, "SELECT * FROM training ORDER BY id_training DESC ");
+                  while ($e = mysqli_fetch_object($tampil_training)):
+                  ?>
+                    <div class="resume-item">
+                        <h4><?php echo $e->nama_training ?></h4>
+                        <div class="row">
+                            <div class="col-10">
+                                <p><em><?php echo $e->tempat_training ?></em></p>
+                                <p><?php echo $e->deskripsi ?></p>
+                            </div>
+                            <div class="col-2">
+                                <div class="text-md-right">
+                                    <h5><?php echo $e->tahun_training ?></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endwhile; ?>
 
-            <div class="resume-item">
-              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-            </div><!-- Edn Resume Item -->
+                        <div class="section-title mt-5">
+                        <h2 id="experience">EXPERIENCE</h2>
+                        </div>
+                        <?php
+                        include "../sb-admin2CV/connection.php";
+                        // profile adalah nama tabel di database
+                        $tampil_job= mysqli_query($koneksi, "SELECT*FROM job ORDER BY id_job DESC ");
+                        while ($j = mysqli_fetch_object($tampil_job)) :
+                        ?>
 
-          </div>
+                          <div class="resume-item">
+                              <h4 style="color: grey;"><?php echo $j->nama_pekerjaan ?></h4>
+                              <h5 style="color: grey;"><?php echo $j->tahun_bekerja ?></h5>
+                              <p><em><?php echo $j->tempat_bekerja ?> </em></p>
+                              <ul>
+                                <li><?php echo $j->deskripsi ?></li>
+                                <!-- <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of
+                                the project. </li>
+                                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the
+                                design</li>
+                                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li> -->
+                                </ul>
+                              </div>
+                            <?php endwhile ?>
+                            <!-- <div class="resume-item">
+                                <h4>Graphic design specialist</h4>
+                                <h5>2017 2018</h5>
+                                <p><em>Stepping Stone Advertising, New York, NY</em></p>
+                                <ul>
+                                  <li>Developed numerous marketing programs (logos, brochures, infographics, presentations, and advertisements).</li>
+                                  <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
+                                  <li>Recommended and consulted with clients on the most appropriate graphic design</li>
+                                  <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+                                </ul>
+                                </div> -->
+                              </div>
+                            </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Senior graphic design specialist</h4>
-              <h5>2019 - Present</h5>
-              <p><em>Experion, New York, NY </em></p>
-              <ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
+                          </div>
+                        </section>
+                        <!-- End Resume Section -->
 
-            <div class="resume-item">
-              <h4>Graphic design specialist</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Stepping Stone Advertising, New York, NY</em></p>
-              <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
+                        <!-- ======= Portfolio Section ======= -->
+                        <section id="portfolio" class="portfolio section-bg">
+                        <div class="container">
 
-          </div>
+                          <div class="section-title">
+                          <h2>PORTFOLIO</h2>
+                          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --> 
+                          </div>
 
-        </div>
+                          <div class="row" data-aos="fade-up">
+                            <div class="col-lg-12 d-flex justify-content-center">
+                              <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".filter-app">App</li>
+                                <!--<li data-filter=".filter-card">Card</li> -->
+                                <li data-filter=".filter-web">Web</li>
+                                </ul>
+                              </div>
+                            </div>
 
-      </div>
+              <!-- Section Title -->
+              <!--<div class="container section-title" data-aos="fade-up">
+                <h2>Resume</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              </div><!- End Section Title 
+
+              <div class="container">
+
+                <div class="row">
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="resume-title">Sumary</h3>
+
+                    <div class="resume-item pb-0">
+                      <h4>Brandon Johnson</h4>
+                      <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+                      <ul>
+                        <li>Portland par 127,Orlando, FL</li>
+                        <li>(123) 456-7891</li>
+                        <li>alice.barkley@example.com</li>
+                      </ul>
+                    </div><!- Edn Resume Item 
+
+                    <h3 class="resume-title">Education</h3>
+                    <div class="resume-item">
+                      <h4>Master of Fine Arts &amp; Graphic Design</h4>
+                      <h5>2015 - 2016</h5>
+                      <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+                      <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+                    </div><! Edn Resume Item --
+
+                    <div class="resume-item">
+                      <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
+                      <h5>2010 - 2014</h5>
+                      <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+                      <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
+                    </div><!- Edn Resume Item --
+
+                  </div>
+
+                  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="resume-title">Professional Experience</h3>
+                    <div class="resume-item">
+                      <h4>Senior graphic design specialist</h4>
+                      <h5>2019 - Present</h5>
+                      <p><em>Experion, New York, NY </em></p>
+                      <ul>
+                        <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+                        <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
+                        <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+                        <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+                      </ul>
+                    </div><!- Edn Resume Item --
+
+                    <div class="resume-item">
+                      <h4>Graphic design specialist</h4>
+                      <h5>2017 - 2018</h5>
+                      <p><em>Stepping Stone Advertising, New York, NY</em></p>
+                      <ul>
+                        <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+                        <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
+                        <li>Recommended and consulted with clients on the most appropriate graphic design</li>
+                        <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+                      </ul>
+                    </div><!- Edn Resume Item --
+
+                  </div>
+
+                </div>
+
+              </div>-->
 
     </section><!-- /Resume Section -->
 
@@ -824,6 +1120,11 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el);
+    });
+  </script>
 
 </body>
 

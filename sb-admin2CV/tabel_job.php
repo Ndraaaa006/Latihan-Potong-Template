@@ -31,11 +31,12 @@ $select_job = mysqli_query($koneksi, "SELECT * FROM job ORDER BY id_job DESC");
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Profession</h1>
 
                     </div>
 
                     <!-- Content Start -->
+                    <a href="form_job.php" class="btn btn-info mb-2">Add</a>
                     <table class="table table-striped">
                         <thead>
                             <tr>

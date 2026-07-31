@@ -34,7 +34,7 @@ $job = mysqli_fetch_object($select_id);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Job</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Update Profession</h1>
 
                     </div>
 

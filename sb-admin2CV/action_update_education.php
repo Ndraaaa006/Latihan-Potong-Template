@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 
-$id = $_POST['id_education'];
+$id = $_POST ['id_education'];
 $nama = $_POST['nama_jurusan'];
 $tahun = $_POST['tahun_belajar'];
 $tempat = $_POST['tempat_belajar'];

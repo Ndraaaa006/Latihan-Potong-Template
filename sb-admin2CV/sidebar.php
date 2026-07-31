@@ -2,10 +2,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="foto/srit.jpg" alt="profile" width="50" height="50" class="rounded-circle">
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Personal cv <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -15,7 +15,8 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -90,101 +91,119 @@
                 </div>
             </li> -->
 
-            <!-- Nav Item - Charts -->
+            <!-- Profile -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_profile.php">
-                    <!-- untuk mencari icon di sidebar dapat diambil
-                     dari fontawesome.php -->
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Profile</span></a>
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Profile</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Skill -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_skill.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Skill</span></a>
+                    <i class="fas fa-fw fa-lightbulb"></i>
+                    <span>Skill</span>
+                </a>
             </li>
 
+            <!-- Education -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_education.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Education</span></a>
+                    <i class="fas fa-fw fa-graduation-cap"></i>
+                    <span>Education</span>
+                </a>
             </li>
 
+            <!-- Training -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_Training.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Training</span></a>
+                    <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                    <span>Training</span>
+                </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="tabel_profession.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Profession</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tabel_language.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Language</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tabel_portfolio.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Portfolio</span></a>
-            </li>
-
+            <!-- Profession -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_job.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Reference</span></a>
+                    <i class="fas fa-fw fa-briefcase"></i>
+                    <span>Profession</span>
+                </a>
             </li>
 
+            <!-- Language -->
+            <li class="nav-item">
+                <a class="nav-link" href="tabel_language.php">
+                    <i class="fas fa-fw fa-language"></i>
+                    <span>Language</span>
+                </a>
+            </li>
+
+            <!-- Portfolio -->
+            <li class="nav-item">
+                <a class="nav-link" href="tabel_portfolio.php">
+                    <i class="fas fa-fw fa-images"></i>
+                    <span>Portfolio</span>
+                </a>
+            </li>
+
+            <!-- Reference -->
+            <li class="nav-item">
+                <a class="nav-link" href="tabel_reference.php">
+                    <i class="fas fa-fw fa-address-book"></i>
+                    <span>Reference</span>
+                </a>
+            </li>
+
+            <!-- Sidebar Photo -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_sidebar_photo.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>sidebar Photo</span></a>
+                    <i class="fas fa-fw fa-image"></i>
+                    <span>sidebar Photo</span>
+                </a>
             </li>
 
+            <!-- Mobile Icon -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_mobile.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Mobile Icon</span></a>
+                    <i class="fas fa-fw fa-mobile-alt"></i>
+                    <span>Mobile Icon</span>
+                </a>
             </li>
 
+            <!-- Familiar -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_familiar.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Familiar</span></a>
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Familiar</span>
+                </a>
             </li>
 
+            <!-- Tools Icon -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_tools.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tools Icon</span></a>
+                    <i class="fas fa-fw fa-tools"></i>
+                    <span>Tools Icon</span>
+                </a>
             </li>
 
+            <!-- Login -->
             <li class="nav-item">
                 <a class="nav-link" href="tabel_login.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Login</span></a>
+                    <i class="fas fa-fw fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </a>
             </li>
+
+            <!-- Logout -->
+        <!--<li class="nav-item">
+                <a class="nav-link" href="logout.php">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Logout</span>
+                </a>
+            </li>-->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
 
         </ul>

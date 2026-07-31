@@ -48,6 +48,10 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">submit</button>
+
+                    <a href="tabel_familiar.php" class="btn btn-secondary">
+                            Kembali
+                    </a>
                 </form>
 
                        

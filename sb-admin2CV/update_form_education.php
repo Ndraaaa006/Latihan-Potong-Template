@@ -24,7 +24,7 @@ $data = mysqli_fetch_assoc($query);
 
 <h1 class="h3 mb-4 text-gray-800">Update Education</h1>
 
-<form action="action_74231update_education.php" method="POST">
+<form action="action_update_education.php" method="POST">
     
     <input type="hidden" name="id_education" value="<?php echo $data['id_education']; ?>">
 

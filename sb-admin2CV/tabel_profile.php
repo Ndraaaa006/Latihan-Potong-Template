@@ -41,9 +41,6 @@ $select_profile = mysqli_query($koneksi, "SELECT * FROM profile");
                     </div>
 
                     <!-- Tombol menuju halaman tambah profile -->
-                    <a href="form_profile.php" class="btn btn-info mb-2">
-                        Add
-                    </a>
 
                     <!-- Membuat tabel profile -->
                     <div class="table-responsive">
@@ -93,6 +90,7 @@ $select_profile = mysqli_query($koneksi, "SELECT * FROM profile");
                                             <?php echo $tampil->address; ?>
                                         </td>
                                         <td>
+                                            <a href="<?php echo $tampil->linkedin; ?>" target="_blank">
                                             <?php echo $tampil->linkedin; ?>
                                         </td>
                                         <td>
@@ -101,16 +99,6 @@ $select_profile = mysqli_query($koneksi, "SELECT * FROM profile");
 
                                         <!-- Kolom tombol aksi -->
                                         <td>
-
-                                            <!-- Tombol Delete -->
-                                            <!-- Mengirim id_profile ke delete_profile.php -->
-                                            <a
-                                                href="delete_profile.php?id_profile=<?php echo $tampil->id_profile; ?>"
-                                                class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Yakin ingin menghapus data ini?')"
-                                            >
-                                                DELETE
-                                            </a>
 
                                             <!-- Tombol Update -->
                                             <!-- Mengirim id_profile ke update_profile.php -->
