@@ -566,6 +566,26 @@
                               </div>
                             </div>
 
+                            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+                              <?php
+                              include "../sb-admin2CV/connection.php";
+                              // profile adalah nama tabel di database
+                              $tampil_portfolio = mysqli_query($koneksi, "SELECT * FROM portfolio WHERE jenis = 'App' ");
+                              while ($pf = mysqli_fetch_object($tampil_portfolio)):
+                              ?>
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="width: 350px; object-fit:cover;
+                                height:175px;">
+                                  <div class="portfolio-wrap">
+                                    <img src="../sb-admin2CV/foto/<?php echo $pf->img ?>" class="img-fluid" alt="">
+                                    <div class="portfolio-links">
+                                      <a href="backend/foto/<?php echo $pf->img ?>" data-gallery="portfolioGallery"
+                                      class="portfolio-lightbox" title="<?php echo $pf->judul_portfolio ?>"><i class="bx bx-plus"></i></a>
+                                      <a href="<?php echo $pf->link ?>" title="More Details"><i class="bx bx-link"></i></a>
+                                    </div>
+                                  </div>
+                                </div>
+                              <?php endwhile ?>
+
               <!-- Section Title -->
               <!--<div class="container section-title" data-aos="fade-up">
                 <h2>Resume</h2>
@@ -641,13 +661,13 @@
     </section><!-- /Resume Section -->
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section light-background">
+    <!--<section id="portfolio" class="portfolio section light-background">
 
-      <!-- Section Title -->
+      <!- Section Title --
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
+      </div><!- End Section Title --
 
       <div class="container">
 
@@ -659,7 +679,7 @@
             <li data-filter=".filter-product">Product</li>
             <li data-filter=".filter-branding">Branding</li>
             <li data-filter=".filter-books">Books</li>
-          </ul><!-- End Portfolio Filters -->
+          </ul><!- End Portfolio Filters --
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
@@ -673,7 +693,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <div class="portfolio-content h-100">
@@ -685,7 +705,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
@@ -697,7 +717,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
@@ -709,7 +729,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
@@ -721,7 +741,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <div class="portfolio-content h-100">
@@ -733,7 +753,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
@@ -745,7 +765,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
@@ -757,7 +777,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
@@ -769,7 +789,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <div class="portfolio-content h-100">
@@ -781,7 +801,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
@@ -793,7 +813,7 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
@@ -805,15 +825,15 @@
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div><!- End Portfolio Item --
 
-          </div><!-- End Portfolio Container -->
+          </div><!-End Portfolio Container --
 
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Section -->
+    </section><!- /Portfolio Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section">
